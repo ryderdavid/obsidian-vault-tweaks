@@ -1,0 +1,18 @@
+/* Hide task ID and parent fields in Live Preview and Reading View */
+
+/* Hide Dataview inline fields in Reading View */
+.dataview.inline-field[data-dv-key="id"],
+.dataview.inline-field[data-dv-key="parent"],
+.dataview.inline-field-standalone[data-dv-key="id"],
+.dataview.inline-field-standalone[data-dv-key="parent"] {
+  display: none !important;
+}
+
+/* Hide [id::...] and [parent::...] in Live Preview Source Mode */
+/* Target the text content directly using font-size trick */
+.cm-line .cm-hmd-barelink:has(~ .cm-formatting-link-end) {
+  /* This targets wikilinks but not our fields */
+}
+
+/* Use a more targeted approach - hide via content matching */
+/* Unfortunately CSS can't match text content, so we use the plugin styles instead */

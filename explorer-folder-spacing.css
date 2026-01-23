@@ -1,0 +1,5 @@
+/* Spacing above top-level folders only */
+
+.nav-files-container > div > .tree-item.nav-folder > .tree-item-self {
+  margin-top: 6px !important;
+}

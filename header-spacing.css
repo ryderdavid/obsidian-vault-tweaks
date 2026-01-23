@@ -1,0 +1,22 @@
+/* Add space below H2 headers */
+h2, .HyperMD-header-2 {
+    padding-bottom: 0.4em !important;
+}
+
+/* Reading view */
+.markdown-preview-view h2 {
+    padding-bottom: 0.4em !important;
+}
+
+/* Target list items that follow H2 headers */
+.markdown-preview-view h2 + ul,
+.markdown-preview-view h2 + ol,
+.markdown-preview-view h2 + .contains-task-list {
+    margin-top: 0.4em !important;
+}
+
+/* For collapsible sections - target the content div */
+.markdown-preview-view div.heading-wrapper + div,
+.markdown-preview-view div:has(> h2) + div {
+    margin-top: 0.4em !important;
+}

@@ -1,0 +1,48 @@
+/* File explorer spacing (without separator lines) */
+
+/* Header toolbar spacing */
+.workspace-leaf-content[data-type="file-explorer"] .nav-header {
+  padding-bottom: 2px !important;
+  padding-top: 2px !important;
+  margin-bottom: 8px !important;
+}
+
+.nav-files-container > .nav-header {
+  padding-bottom: 2px !important;
+  padding-top: 2px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Vertical spacing between top-level folders (no lines) */
+.nav-files-container > .tree-item > .tree-item-children > .tree-item:not(:first-child):not(:first-of-type) {
+  padding-top: 6px;
+  margin-top: 6px;
+}
+
+/* Alternative selector for different Obsidian versions */
+.workspace-leaf-content[data-type="file-explorer"] .tree-item.nav-folder:not(.nav-folder-children .nav-folder .nav-folder):not(:first-child):not(:first-of-type) {
+  padding-top: 6px;
+  margin-top: 6px;
+}
+
+/* Ensure first folder has no extra spacing */
+.nav-files-container > .tree-item > .tree-item-children > .tree-item.nav-folder:first-of-type {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.workspace-leaf-content[data-type="file-explorer"] .tree-item.nav-folder:first-of-type {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.tree-item-children > .nav-folder:first-child,
+.tree-item-children > .tree-item:first-child {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.tree-item.nav-folder:has(> .tree-item-self[data-path="00 - Daily"]) {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}

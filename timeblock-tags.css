@@ -1,0 +1,172 @@
+/* Style timeblocks to look like tags */
+
+/* Timeblock spans created by the plugin in reading view */
+.timeblock,
+span.timeblock {
+  background-color: var(--tag-background);
+  color: var(--tag-color);
+  border-radius: var(--tag-radius, var(--radius-s));
+  padding: var(--tag-padding-y, 0.1em) var(--tag-padding-x, 0.4em);
+  font-size: var(--tag-size);
+  font-weight: var(--tag-weight);
+  font-family: var(--font-monospace);
+  line-height: 1;
+  text-decoration: none;
+  margin: 0 0.15em;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.timeblock:hover,
+span.timeblock:hover {
+  background-color: var(--tag-background-hover);
+  color: var(--tag-color-hover);
+}
+
+/* ===== Tasks Plugin Due Date Styling ===== */
+/* The Tasks plugin renders: <span class="task-due">📅 <a>date</a></span> */
+/* We hide the emoji and add a "due" label */
+
+.task-due {
+  background-color: var(--tag-background);
+  color: var(--tag-color);
+  border-radius: var(--tag-radius, var(--radius-s));
+  padding: var(--tag-padding-y, 0.1em) var(--tag-padding-x, 0.4em);
+  line-height: 1;
+  margin: 0 0.15em;
+  /* Hide ALL content including emoji text by zeroing font-size */
+  font-size: 0;
+  /* Hide any images/icons */
+  overflow: hidden;
+}
+
+.task-due:hover {
+  background-color: var(--tag-background-hover);
+  color: var(--tag-color-hover);
+}
+
+/* Hide any image icons inside */
+.task-due img,
+.task-due svg {
+  display: none !important;
+}
+
+/* Add "due" label */
+.task-due::before {
+  content: "due";
+  font-variant: small-caps;
+  font-size: var(--tag-size, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  opacity: 0.8;
+  margin-right: 0.3em;
+}
+
+/* Restore font-size for the date link */
+.task-due a,
+.task-due .internal-link {
+  font-size: var(--tag-size, 0.8125rem);
+  color: inherit;
+  text-decoration: none;
+}
+
+.task-due a:hover {
+  text-decoration: underline;
+}
+
+/* Scheduled dates */
+.task-scheduled {
+  background-color: var(--tag-background);
+  color: var(--tag-color);
+  border-radius: var(--tag-radius, var(--radius-s));
+  padding: var(--tag-padding-y, 0.1em) var(--tag-padding-x, 0.4em);
+  line-height: 1;
+  margin: 0 0.15em;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.task-scheduled:hover {
+  background-color: var(--tag-background-hover);
+  color: var(--tag-color-hover);
+}
+
+.task-scheduled img,
+.task-scheduled svg {
+  display: none !important;
+}
+
+.task-scheduled::before {
+  content: "scheduled";
+  font-variant: small-caps;
+  font-size: var(--tag-size, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  opacity: 0.8;
+  margin-right: 0.3em;
+}
+
+.task-scheduled a,
+.task-scheduled .internal-link {
+  font-size: var(--tag-size, 0.8125rem);
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Start dates */
+.task-start {
+  background-color: var(--tag-background);
+  color: var(--tag-color);
+  border-radius: var(--tag-radius, var(--radius-s));
+  padding: var(--tag-padding-y, 0.1em) var(--tag-padding-x, 0.4em);
+  line-height: 1;
+  margin: 0 0.15em;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.task-start:hover {
+  background-color: var(--tag-background-hover);
+  color: var(--tag-color-hover);
+}
+
+.task-start img,
+.task-start svg {
+  display: none !important;
+}
+
+.task-start::before {
+  content: "start";
+  font-variant: small-caps;
+  font-size: var(--tag-size, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  opacity: 0.8;
+  margin-right: 0.3em;
+}
+
+.task-start a,
+.task-start .internal-link {
+  font-size: var(--tag-size, 0.8125rem);
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Day Planner's built-in time decoration class (for timeline view) */
+.day-planner-task-decoration {
+  background-color: var(--tag-background);
+  color: var(--tag-color);
+  border-radius: var(--tag-radius, var(--radius-s));
+  padding: var(--tag-padding-y, 0.1em) var(--tag-padding-x, 0.4em);
+  font-size: var(--tag-size);
+  font-weight: var(--tag-weight);
+  font-family: var(--font-monospace);
+  line-height: 1;
+  text-decoration: none;
+  margin: 0 0.25em;
+}
+
+.day-planner-task-decoration:hover {
+  background-color: var(--tag-background-hover);
+  color: var(--tag-color-hover);
+}

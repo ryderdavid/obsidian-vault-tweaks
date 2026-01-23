@@ -1,0 +1,38 @@
+/* ===== Task Note Links as Pills ===== */
+/* Style wiki-links pointing to Task Notes folder as pill buttons */
+
+/* Reading view */
+a.internal-link[href*="Task Notes"],
+a.internal-link[href*="Task%20Notes"] {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  text-decoration: none;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+a.internal-link[href*="Task Notes"]:hover,
+a.internal-link[href*="Task%20Notes"]:hover {
+  background: rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+/* Live preview / editor view */
+.cm-hmd-internal-link .cm-underline:has([data-href*="Task Notes"]),
+.cm-link .cm-underline:has([data-href*="Task Notes"]) {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  text-decoration: none;
+}
+
+/* Unresolved links (note doesn't exist yet) - show in different style */
+a.internal-link.is-unresolved[href*="Task Notes"],
+a.internal-link.is-unresolved[href*="Task%20Notes"] {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-faint);
+  font-style: italic;
+}

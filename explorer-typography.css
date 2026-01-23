@@ -1,0 +1,33 @@
+/* File explorer typography styling */
+
+/* Base file explorer font size */
+.nav-files-container {
+  font-size: 15px;
+}
+
+/* Folder typography - hierarchical sizing matching heading levels */
+
+/* All folder titles - base weight */
+.nav-folder-title-content {
+  font-weight: 600 !important;
+}
+
+/* Level 1 (top-level folders) - H3 sizing: 1.25em */
+.nav-files-container > div > .tree-item.nav-folder > .tree-item-self > .nav-folder-title-content {
+  font-size: 1.25em !important;
+}
+
+/* Level 2 - H4 sizing: 1.1em */
+.nav-files-container > div > .tree-item.nav-folder > .tree-item-children > .tree-item.nav-folder > .tree-item-self > .nav-folder-title-content {
+  font-size: 1.1em !important;
+}
+
+/* Level 3 - H5 sizing: 1em */
+.nav-files-container > div > .tree-item.nav-folder > .tree-item-children > .tree-item.nav-folder > .tree-item-children > .tree-item.nav-folder > .tree-item-self > .nav-folder-title-content {
+  font-size: 1em !important;
+}
+
+/* Level 4+ - H6 sizing: 0.9em */
+.nav-files-container > div > .tree-item.nav-folder > .tree-item-children > .tree-item.nav-folder > .tree-item-children > .tree-item.nav-folder > .tree-item-children .nav-folder-title-content {
+  font-size: 0.9em !important;
+}

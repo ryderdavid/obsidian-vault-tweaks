@@ -1,0 +1,45 @@
+/* Dynamic Commander buttons in file explorer header */
+
+/* Target ONLY the file explorer nav header - NOT backlinks or other panels */
+.nav-files-container .nav-header .clickable-icon,
+.workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container .clickable-icon {
+  flex: 1 1 0;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 48px;
+}
+
+/* Scale icons proportionally - file explorer only */
+.nav-files-container .nav-header .clickable-icon svg,
+.workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container .clickable-icon svg {
+  width: 65%;
+  height: 65%;
+}
+
+/* Make the container distribute buttons evenly - file explorer only */
+.nav-files-container .nav-header,
+.workspace-leaf-content[data-type="file-explorer"] .nav-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+/* Fix expand/collapse button in top title bar */
+.workspace-tab-header-container-inner .clickable-icon,
+.view-header-icon,
+.view-action {
+  width: 32px !important;
+  height: 32px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workspace-tab-header-container-inner .clickable-icon svg,
+.view-header-icon svg,
+.view-action svg {
+  width: 20px !important;
+  height: 20px !important;
+}

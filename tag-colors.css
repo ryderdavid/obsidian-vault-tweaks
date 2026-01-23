@@ -1,0 +1,85 @@
+/* ===== Color-coded Tags - Light gray pills with colored text ===== */
+
+/* NewRez tag - green text */
+a.tag[href="#newrez"],
+a.tag[href*="newrez"],
+.tag[href="#newrez"],
+.tag[href*="newrez"],
+.cm-tag-newrez,
+.cm-hashtag-end:is([data-contents="newrez"]),
+span.cm-tag[data-tag="newrez"],
+.cm-s-obsidian .cm-tag-newrez {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  color: #27ae60 !important;
+}
+
+a.tag[href="#newrez"]:hover,
+a.tag[href*="newrez"]:hover,
+.tag[href="#newrez"]:hover,
+.tag[href*="newrez"]:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: #2ecc71 !important;
+}
+
+/* SEI tag - red text */
+a.tag[href="#sei"],
+a.tag[href*="sei"],
+.tag[href="#sei"],
+.tag[href*="sei"],
+.cm-tag-sei,
+.cm-hashtag-end:is([data-contents="sei"]),
+span.cm-tag[data-tag="sei"],
+.cm-s-obsidian .cm-tag-sei {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  color: #e74c3c !important;
+}
+
+a.tag[href="#sei"]:hover,
+a.tag[href*="sei"]:hover,
+.tag[href="#sei"]:hover,
+.tag[href*="sei"]:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: #c0392b !important;
+}
+
+/* Zaxbys tag - orange text */
+a.tag[href="#zaxbys"],
+a.tag[href*="zaxbys"],
+.tag[href="#zaxbys"],
+.tag[href*="zaxbys"],
+.cm-tag-zaxbys,
+.cm-hashtag-end:is([data-contents="zaxbys"]),
+span.cm-tag[data-tag="zaxbys"],
+.cm-s-obsidian .cm-tag-zaxbys {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  color: #e67e22 !important;
+}
+
+a.tag[href="#zaxbys"]:hover,
+a.tag[href*="zaxbys"]:hover,
+.tag[href="#zaxbys"]:hover,
+.tag[href*="zaxbys"]:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: #d35400 !important;
+}
+
+/* Personal tag - blue text */
+a.tag[href="#personal"],
+a.tag[href*="personal"],
+.tag[href="#personal"],
+.tag[href*="personal"],
+.cm-tag-personal,
+.cm-hashtag-end:is([data-contents="personal"]),
+span.cm-tag[data-tag="personal"],
+.cm-s-obsidian .cm-tag-personal {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  color: #3498db !important;
+}
+
+a.tag[href="#personal"]:hover,
+a.tag[href*="personal"]:hover,
+.tag[href="#personal"]:hover,
+.tag[href*="personal"]:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: #2980b9 !important;
+}
