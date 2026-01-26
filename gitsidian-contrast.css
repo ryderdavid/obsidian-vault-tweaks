@@ -1,0 +1,206 @@
+/* Gitsidian Contrast Enhancement */
+/* Improves readability while maintaining GitHub aesthetic */
+
+/* Main text - slightly darker */
+.markdown-preview-view,
+.markdown-source-view,
+.cm-s-obsidian {
+  color: #1f2328;
+}
+
+/* Headings - deeper contrast */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6,
+.cm-header {
+  color: #1a1f24;
+}
+
+/* H6 specifically - was too light */
+.markdown-preview-view h6 {
+  color: #4b5563;
+}
+
+/* Blockquotes - more readable gray */
+.markdown-preview-view blockquote,
+.cm-quote {
+  color: #4b5563;
+}
+
+/* Muted text - bumped up for readability */
+.text-gray-light,
+.markdown-preview-view .text-gray-light {
+  color: #57606a !important;
+}
+
+/* Inline code - better contrast */
+.markdown-preview-view p code,
+.markdown-preview-view kbd,
+.cm-inline-code {
+  color: #1f2328;
+  background-color: #f3f4f6;
+  border-color: #c9ccd1;
+}
+
+/* Code blocks */
+.markdown-preview-view pre,
+.markdown-preview-view pre[class*="language-"] {
+  background-color: #f3f4f6;
+}
+
+/* Borders - slightly more visible */
+.markdown-preview-view hr {
+  background-color: #d0d7de;
+}
+
+.markdown-preview-view h1,
+.markdown-preview-view h2 {
+  border-bottom-color: #d8dee4;
+}
+
+.markdown-preview-view blockquote {
+  border-left-color: #c9ccd1 !important;
+}
+
+/* Table borders */
+.markdown-preview-view table td,
+.markdown-preview-view table th {
+  border-color: #d0d7de;
+}
+
+.markdown-preview-view table tr {
+  border-top-color: #afb8c1;
+}
+
+/* Links - slightly deeper blue for better contrast */
+.markdown-preview-view a,
+.cm-link {
+  color: #0550ae;
+}
+
+/* Tags */
+.markdown-preview-view a.tag {
+  color: #0550ae;
+  background-color: #ddf4ff;
+}
+
+/* Editor-specific (Live Preview / Source mode) */
+.cm-s-obsidian .cm-link,
+.cm-s-obsidian .cm-hmd-internal-link {
+  color: #0550ae;
+}
+
+/* File explorer and UI text */
+.nav-file-title,
+.nav-folder-title {
+  color: #1f2328;
+}
+
+.nav-file-title.is-active {
+  color: #1a1f24;
+}
+
+/* ============================================
+   SECONDARY PANELS & SIDEBARS
+   ============================================ */
+
+/* Sidebar backgrounds - slightly darker for definition */
+.workspace-sidedock,
+.workspace-sidedock-vault-profile,
+.workspace-tab-header-container,
+.mod-left-split,
+.mod-right-split {
+  background-color: #f6f8fa;
+}
+
+/* Left sidebar / file explorer background */
+.workspace-split.mod-left-split > .workspace-tabs {
+  background-color: #f6f8fa;
+}
+
+/* Right sidebar background */
+.workspace-split.mod-right-split > .workspace-tabs {
+  background-color: #f6f8fa;
+}
+
+/* Tab container backgrounds */
+.workspace-tab-container {
+  background-color: #f6f8fa;
+}
+
+/* Panel dividers / borders - more visible */
+.workspace-leaf-resize-handle {
+  background-color: #d0d7de;
+}
+
+.workspace-split.mod-vertical > .workspace-leaf-resize-handle {
+  border-left-color: #d0d7de;
+  border-right-color: #d0d7de;
+}
+
+.workspace-split.mod-horizontal > .workspace-leaf-resize-handle {
+  border-top-color: #d0d7de;
+  border-bottom-color: #d0d7de;
+}
+
+/* Tab headers */
+.workspace-tab-header {
+  background-color: transparent;
+}
+
+.workspace-tab-header.is-active {
+  background-color: #ffffff;
+}
+
+/* Left ribbon (icon sidebar) */
+.workspace-ribbon {
+  background-color: #f0f2f5;
+  border-right: 1px solid #d0d7de;
+}
+
+/* Sidebar section headers */
+.nav-header {
+  border-bottom: 1px solid #d0d7de;
+}
+
+/* Search and input fields in sidebars */
+.search-input-container input,
+.nav-action-button {
+  border-color: #d0d7de;
+}
+
+/* Status bar */
+.status-bar {
+  background-color: #f6f8fa;
+  border-top: 1px solid #d0d7de;
+}
+
+/* Modal and popup backgrounds */
+.modal-bg {
+  background-color: rgba(27, 31, 35, 0.5);
+}
+
+.modal {
+  border: 1px solid #d0d7de;
+}
+
+/* Settings panel */
+.vertical-tab-content {
+  border-left: 1px solid #d0d7de;
+}
+
+/* Scrollbar styling for better visibility */
+::-webkit-scrollbar-thumb {
+  background-color: #c9ccd1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #afb8c1;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f2f5;
+}

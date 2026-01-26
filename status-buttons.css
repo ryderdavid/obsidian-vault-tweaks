@@ -1,0 +1,24 @@
+/* Status buttons row - flexbox container */
+.status-buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+}
+
+/* Make button blocks inside the row behave as flex items */
+.status-buttons-row .block-language-button {
+  margin: 0 !important;
+}
+
+/* Smaller, more compact buttons */
+.status-btn {
+  padding: 4px 12px;
+  font-size: 0.9em;
+}
+
+/* Light gray callout for button definitions */
+.callout[data-callout="meta"] {
+  --callout-color: 128, 128, 128;
+  --callout-icon: lucide-settings-2;
+}
