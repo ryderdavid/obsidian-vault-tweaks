@@ -1,0 +1,178 @@
+/*
+ * Theme-Independent Task Checkbox Styling
+ * Uses Font Awesome circular icons for consistent checkbox appearance
+ * regardless of which Obsidian theme is active.
+ *
+ * Supports: [ ] incomplete, [x] complete, [-] cancelled, [/] in-progress,
+ *           [>] scheduled, [<] scheduled-from, [c] calendar
+ */
+
+/* =============================================================================
+   BASE CHECKBOX STYLING - Make all checkboxes circular
+   ============================================================================= */
+
+/* Live Preview (Source Mode) */
+.markdown-source-view.mod-cm6 .task-list-item-checkbox {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+/* Reading View */
+.markdown-preview-view .task-list-item-checkbox {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+/* =============================================================================
+   SHARED ICON STYLING - Base for all custom checkbox states
+   ============================================================================= */
+
+input[data-task='-']:checked,
+input[data-task='/']:checked,
+input[data-task='>']:checked,
+input[data-task='<']:checked,
+input[data-task='c']:checked,
+li[data-task='-'] > input:checked,
+li[data-task='-'] > p > input:checked,
+li[data-task='/'] > input:checked,
+li[data-task='/'] > p > input:checked,
+li[data-task='>'] > input:checked,
+li[data-task='>'] > p > input:checked,
+li[data-task='<'] > input:checked,
+li[data-task='<'] > p > input:checked,
+li[data-task='c'] > input:checked,
+li[data-task='c'] > p > input:checked {
+  --checkbox-marker-color: transparent;
+  border: none;
+  border-radius: 0;
+  background-image: none;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 50%;
+}
+
+/* =============================================================================
+   CANCELLED [-] - Circle with X (fa-circle-xmark)
+   ============================================================================= */
+
+input[data-task='-']:checked,
+li[data-task='-'] > input:checked,
+li[data-task='-'] > p > input:checked {
+  color: var(--text-faint);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z'/%3E%3C/svg%3E");
+}
+
+/* Strikethrough text for cancelled tasks */
+body:not(.tasks)
+  .markdown-preview-view
+  ul
+  li[data-task='-'].task-list-item.is-checked,
+body:not(.tasks)
+  .markdown-source-view.mod-cm6
+  .HyperMD-task-line[data-task]:is([data-task='-']),
+body:not(.tasks) li[data-task='-'].task-list-item.is-checked {
+  color: var(--text-faint);
+  text-decoration: line-through solid var(--text-faint) 1px;
+}
+
+/* =============================================================================
+   IN-PROGRESS [/] - Half-filled circle (fa-circle-half-stroke)
+   ============================================================================= */
+
+input[data-task='/']:checked,
+li[data-task='/'] > input:checked,
+li[data-task='/'] > p > input:checked {
+  color: var(--color-accent, var(--interactive-accent));
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z'/%3E%3C/svg%3E");
+}
+
+/* =============================================================================
+   SCHEDULED [>] - Circle with right arrow (fa-circle-right)
+   ============================================================================= */
+
+input[data-task='>']:checked,
+li[data-task='>'] > input:checked,
+li[data-task='>'] > p > input:checked {
+  color: var(--text-faint);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z'/%3E%3C/svg%3E");
+}
+
+/* Muted text for scheduled-away tasks */
+body:not(.tasks)
+  .markdown-preview-view
+  ul
+  li[data-task='>'].task-list-item.is-checked,
+body:not(.tasks)
+  .markdown-source-view.mod-cm6
+  .HyperMD-task-line[data-task]:is([data-task='>']),
+body:not(.tasks) li[data-task='>'].task-list-item.is-checked {
+  color: var(--text-faint);
+}
+
+/* =============================================================================
+   SCHEDULED-FROM [<] - Circle with left arrow (fa-circle-left)
+   ============================================================================= */
+
+input[data-task='<']:checked,
+li[data-task='<'] > input:checked,
+li[data-task='<'] > p > input:checked {
+  color: var(--text-faint);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9L117.5 269.8c-3.5-3.8-5.5-8.7-5.5-13.8s2-10.1 5.5-13.8l99.9-107.1c4.2-4.5 10.1-7.1 16.3-7.1C246 128 256 138 256 150.3l0 57.7 96 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32l-96 0 0 57.7c0 12.3-10 22.3-22.3 22.3c-6.2 0-12.1-2.6-16.3-7.1z'/%3E%3C/svg%3E");
+}
+
+/* =============================================================================
+   CALENDAR [c] - Calendar icon (fa-calendar)
+   ============================================================================= */
+
+input[data-task='c']:checked,
+li[data-task='c'] > input:checked,
+li[data-task='c'] > p > input:checked {
+  color: var(--color-orange, #e87d3e);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='currentColor' d='M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z'/%3E%3C/svg%3E");
+}
+
+/* Calendar events should not have strikethrough */
+body:not(.tasks) li[data-task='c'].task-list-item.is-checked {
+  text-decoration: none;
+  color: var(--text-normal);
+}
+
+/* =============================================================================
+   COMPLETE [x] - Circle with check (fa-circle-check)
+   Override default checkmark with circular version
+   ============================================================================= */
+
+input[data-task='x']:checked,
+input[data-task='X']:checked,
+li[data-task='x'] > input:checked,
+li[data-task='x'] > p > input:checked,
+li[data-task='X'] > input:checked,
+li[data-task='X'] > p > input:checked {
+  --checkbox-marker-color: transparent;
+  border: none;
+  border-radius: 0;
+  background-image: none;
+  background-color: var(--color-green, var(--interactive-accent));
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 50%;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z'/%3E%3C/svg%3E");
+}
+
+/* =============================================================================
+   INCOMPLETE [ ] - Empty circle (fa-circle regular/outline)
+   ============================================================================= */
+
+/* Style unchecked checkboxes as open circles */
+.markdown-source-view.mod-cm6 .task-list-item-checkbox:not(:checked),
+.markdown-preview-view .task-list-item-checkbox:not(:checked) {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid var(--checkbox-border-color, var(--text-faint));
+  border-radius: 50%;
+  background: transparent;
+}
