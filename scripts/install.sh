@@ -3,7 +3,7 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-DEST="$HOME/Obsidian/Main/.obsidian/snippets"
+DEST="$HOME/Documents/Obsidian/Main/.obsidian/snippets"
 
 cd "$PROJECT_DIR"
 
