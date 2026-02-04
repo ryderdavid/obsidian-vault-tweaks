@@ -10,7 +10,7 @@
  *   c) theme sans font (var(--font-text))
  *   d) transparent background, keep padding
  *   e) restore :: separator after key
- *   f) hide id and parent fields (visible only when cursor is on the line)
+ *   f) hide id, parent, and priority fields (visible only when cursor is on the line)
  *   g) prevent line-breaks within a field (wrap as a whole unit)
  */
 
@@ -61,7 +61,7 @@
   padding-right: 0;
 }
 
-/* ── Hide id and parent fields ────────────────────────────────── */
+/* ── Hide id, parent, and priority fields ─────────────────────── */
 /* In Live Preview these reappear as raw text when cursor is on the line.
    In Reading View they stay hidden (no cursor concept).
    Note: data-dv-key lives on the CHILD spans, not the parent wrapper,
@@ -69,7 +69,8 @@
 
 /* Reading View — hide the parent wrapper via :has() */
 .dataview.inline-field:has(> [data-dv-key="id"]),
-.dataview.inline-field:has(> [data-dv-key="parent"]) {
+.dataview.inline-field:has(> [data-dv-key="parent"]),
+.dataview.inline-field:has(> [data-dv-key="priority"]) {
   display: none !important;
 }
 
@@ -79,7 +80,10 @@
 .dataview.inline-field-standalone-value[data-dv-key="id"],
 .dataview.inline-field-key[data-dv-key="parent"],
 .dataview.inline-field-value[data-dv-key="parent"],
-.dataview.inline-field-standalone-value[data-dv-key="parent"] {
+.dataview.inline-field-standalone-value[data-dv-key="parent"],
+.dataview.inline-field-key[data-dv-key="priority"],
+.dataview.inline-field-value[data-dv-key="priority"],
+.dataview.inline-field-standalone-value[data-dv-key="priority"] {
   display: none !important;
 }
 
