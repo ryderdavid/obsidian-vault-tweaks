@@ -1,0 +1,96 @@
+/*
+ * Dataview inline field visual muting
+ *
+ * Softens rendered inline fields ([key:: value]) so they stay readable
+ * but don't compete with task text.  Targets both Live Preview and
+ * Reading View.
+ *
+ *   a) smaller font size
+ *   b) medium-light gray text
+ *   c) theme sans font (var(--font-text))
+ *   d) transparent background, keep padding
+ *   e) restore :: separator after key
+ *   f) hide id, parent, and priority fields (visible only when cursor is on the line)
+ *   g) prevent line-breaks within a field (wrap as a whole unit)
+ */
+
+/* ── Prevent line-breaks within fields ────────────────────────── */
+/* Treat each [key:: value] as an atomic inline unit so the browser
+   wraps the whole field to the next line rather than breaking inside. */
+
+.dataview.inline-field {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+/* ── Reading View ─────────────────────────────────────────────── */
+
+.dataview.inline-field-key,
+.dataview.inline-field-value {
+  font-size: 0.8em;
+  color: var(--text-faint);
+  font-family: var(--font-text);
+  background: transparent;
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Restore :: separator after the key */
+.dataview.inline-field-key::after {
+  content: "::";
+}
+
+/* ── Live Preview ─────────────────────────────────────────────── */
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-key,
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-value {
+  font-size: 0.8em;
+  color: var(--text-faint);
+  font-family: var(--font-text);
+  background: transparent;
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ── Hide id, parent, and priority fields ─────────────────────── */
+/* In Live Preview these reappear as raw text when cursor is on the line.
+   In Reading View they stay hidden (no cursor concept).
+   Note: data-dv-key lives on the CHILD spans, not the parent wrapper,
+   so we use :has() to select the parent container. */
+
+/* Reading View — hide the parent wrapper via :has() */
+.dataview.inline-field:has(> [data-dv-key="id"]),
+.dataview.inline-field:has(> [data-dv-key="parent"]),
+.dataview.inline-field:has(> [data-dv-key="priority"]) {
+  display: none !important;
+}
+
+/* Live Preview — hide individual key/value widget spans directly */
+.dataview.inline-field-key[data-dv-key="id"],
+.dataview.inline-field-value[data-dv-key="id"],
+.dataview.inline-field-standalone-value[data-dv-key="id"],
+.dataview.inline-field-key[data-dv-key="parent"],
+.dataview.inline-field-value[data-dv-key="parent"],
+.dataview.inline-field-standalone-value[data-dv-key="parent"],
+.dataview.inline-field-key[data-dv-key="priority"],
+.dataview.inline-field-value[data-dv-key="priority"],
+.dataview.inline-field-standalone-value[data-dv-key="priority"] {
+  display: none !important;
+}
+
+/* Also mute the bracket pseudo-elements to match (from brackets snippet) */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-key::before,
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-value::after {
+  color: var(--text-faint);
+  font-family: var(--font-text);
+  font-size: inherit;
+}

@@ -1,0 +1,42 @@
+/*
+ * Dataview inline-field brackets (Live Preview)
+ *
+ * When Dataview "pretty renders" inline fields in Live Preview, it replaces
+ * `[key:: value]` with a widget that omits the surrounding `[` `]` until you
+ * move the cursor into the field.
+ *
+ * This snippet adds the brackets back visually so they render consistently.
+ */
+
+/* Only affect the editor Live Preview (not reading view). */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field {
+  /* Keep pseudo elements positioned relative to the widget. */
+  position: relative;
+}
+
+/* Render the opening bracket before the key. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-key {
+  position: relative;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-key::before {
+  content: "[";
+  color: var(--text-formatting, var(--text-muted));
+  opacity: 0.9;
+  margin-right: 0.05em;
+  pointer-events: none;
+}
+
+/* Render the closing bracket after the value. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-value {
+  position: relative;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-value::after {
+  content: "]";
+  color: var(--text-formatting, var(--text-muted));
+  opacity: 0.9;
+  margin-left: 0.05em;
+  pointer-events: none;
+}
+

@@ -3,7 +3,12 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-DEST="$HOME/Documents/Obsidian/Main/.obsidian/snippets"
+VAULT="$1"
+if [ -z "$VAULT" ]; then
+  echo "Usage: $0 <vault-path>"
+  exit 1
+fi
+DEST="$VAULT/.obsidian/snippets"
 
 cd "$PROJECT_DIR"
 
