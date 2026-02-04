@@ -1,0 +1,52 @@
+/*
+ * Dataview inline field visual muting
+ *
+ * Softens rendered inline fields ([key:: value]) so they stay readable
+ * but don't compete with task text.  Targets both Live Preview and
+ * Reading View.
+ *
+ *   a) smaller font size
+ *   b) medium-light gray text
+ *   c) theme sans font (var(--font-text))
+ *   d) transparent background, keep padding
+ *   e) restore :: separator after key
+ */
+
+/* ── Reading View ─────────────────────────────────────────────── */
+
+.dataview.inline-field-key,
+.dataview.inline-field-value {
+  font-size: 0.8em;
+  color: var(--text-faint);
+  font-family: var(--font-text);
+  background: transparent;
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Restore :: separator after the key */
+.dataview.inline-field-key::after {
+  content: "::";
+}
+
+/* ── Live Preview ─────────────────────────────────────────────── */
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-key,
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-value {
+  font-size: 0.8em;
+  color: var(--text-faint);
+  font-family: var(--font-text);
+  background: transparent;
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Also mute the bracket pseudo-elements to match (from brackets snippet) */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-key::before,
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .dataview.inline-field-value::after {
+  color: var(--text-faint);
+  font-family: var(--font-text);
+  font-size: inherit;
+}
