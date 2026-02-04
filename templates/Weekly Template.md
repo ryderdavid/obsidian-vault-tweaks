@@ -58,7 +58,7 @@ tR += summary;
 _%>
 %%SUMMARY_END%%
 
-## Unfinished Last Week
+## Unfinished (Last & This Week)
 
 ```dataviewjs
 const ws = dv.current().week_start;
@@ -66,14 +66,14 @@ if (!ws) { dv.paragraph("*Missing week_start in frontmatter.*"); }
 else {
   const weekStart = dv.date(ws);
   const prevStart = weekStart.minus({days: 7});
-  const prevEnd = weekStart.minus({days: 1});
+  const weekEnd = weekStart.plus({days: 6});
 
   const tasks = dv.pages('"Daily"').file.tasks
     .where(t => {
       const match = t.path?.match(/(\d{4}-\d{2}-\d{2})/);
       if (!match) return false;
       const d = dv.date(match[1]);
-      return d >= prevStart && d <= prevEnd;
+      return d >= prevStart && d <= weekEnd;
     })
     .where(t => !t.checked && !t.text.includes(">[["));
 
@@ -89,7 +89,7 @@ else {
 
 -
 
-## Accomplishments
+## Accomplishments (Last & This Week)
 
 ```dataviewjs
 const ws = dv.current().week_start;
@@ -97,21 +97,21 @@ if (!ws) { dv.paragraph("*Missing week_start in frontmatter.*"); }
 else {
   const weekStart = dv.date(ws);
   const prevStart = weekStart.minus({days: 7});
-  const prevEnd = weekStart.minus({days: 1});
+  const weekEnd = weekStart.plus({days: 6});
 
   const tasks = dv.pages('"Daily"').file.tasks
     .where(t => {
       const match = t.path?.match(/(\d{4}-\d{2}-\d{2})/);
       if (!match) return false;
       const d = dv.date(match[1]);
-      return d >= prevStart && d <= prevEnd;
+      return d >= prevStart && d <= weekEnd;
     })
     .where(t => t.completed);
 
   if (tasks.length > 0) {
     dv.taskList(tasks, false);
   } else {
-    dv.paragraph("*No completed tasks found for last week.*");
+    dv.paragraph("*No completed tasks found for last or this week.*");
   }
 }
 ```
