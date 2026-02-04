@@ -11,7 +11,7 @@ prev_week_end: <% moment(tp.file.title, "GGGG-[W]WW").startOf('isoWeek').subtrac
 [[Weekly/<% moment(tp.file.title, "GGGG-[W]WW").subtract(1, 'weeks').format("GGGG-[W]WW") %>|< Previous]] | Week of <% moment(tp.file.title, "GGGG-[W]WW").startOf('isoWeek').format("MMM DD") %> — <% moment(tp.file.title, "GGGG-[W]WW").endOf('isoWeek').format("MMM DD, YYYY") %> | [[Weekly/<% moment(tp.file.title, "GGGG-[W]WW").add(1, 'weeks').format("GGGG-[W]WW") %>|Next >]]
 
 ## Summary
-[Refresh Summary](<obsidian://run-templater?vault=Vault&template=Resources/Templates/Refresh Weekly Summary.md>)
+[Refresh Summary](<obsidian://adv-uri?vault=Vault&commandid=templater-obsidian%3AResources%2FTemplates%2FRefresh%20Weekly%20Summary.md>)
 
 %%SUMMARY_START%%
 <%*
