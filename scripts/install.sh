@@ -8,20 +8,44 @@ if [ -z "$VAULT" ]; then
   echo "Usage: $0 <vault-path>"
   exit 1
 fi
-DEST="$VAULT/.obsidian/snippets"
 
 cd "$PROJECT_DIR"
 
-echo "Installing CSS snippets to $DEST..."
-mkdir -p "$DEST"
+# --- CSS Snippets ---
+SNIPPETS_DEST="$VAULT/.obsidian/snippets"
+echo "Installing CSS snippets to $SNIPPETS_DEST..."
+mkdir -p "$SNIPPETS_DEST"
 
-# Copy all CSS files
-for css in *.css; do
+for css in css/*.css; do
   if [ -f "$css" ]; then
-    cp "$css" "$DEST/"
-    echo "  ✓ $css"
+    cp "$css" "$SNIPPETS_DEST/"
+    echo "  + $(basename "$css")"
+  fi
+done
+
+# Archived snippets are not installed (remove stale copies from vault)
+for css in css/archived/*.css; do
+  if [ -f "$css" ]; then
+    target="$SNIPPETS_DEST/$(basename "$css")"
+    if [ -f "$target" ]; then
+      rm "$target"
+      echo "  - $(basename "$css") (archived, removed from vault)"
+    fi
+  fi
+done
+
+# --- Templater Templates ---
+TEMPLATES_DEST="$VAULT/Resources/Templates"
+echo ""
+echo "Installing templates to $TEMPLATES_DEST..."
+mkdir -p "$TEMPLATES_DEST"
+
+for tmpl in templates/*.md; do
+  if [ -f "$tmpl" ]; then
+    cp "$tmpl" "$TEMPLATES_DEST/"
+    echo "  + $(basename "$tmpl")"
   fi
 done
 
 echo ""
-echo "✓ Installed CSS snippets. Enable them in Obsidian Settings > Appearance > CSS snippets."
+echo "Done."
