@@ -116,7 +116,7 @@ else {
 }
 ```
 
-## Last Week's Notes
+## Notes Edited (Last & This Week)
 
 ```dataviewjs
 const ws = dv.current().week_start;
@@ -124,12 +124,12 @@ if (!ws) { dv.paragraph("*Missing week_start in frontmatter.*"); }
 else {
   const weekStart = dv.date(ws);
   const prevStart = weekStart.minus({days: 7});
-  const prevEnd = weekStart;
+  const weekEnd = weekStart.plus({days: 7});
 
   const notes = dv.pages()
     .where(p => {
       return p.file.mtime >= prevStart
-        && p.file.mtime < prevEnd
+        && p.file.mtime < weekEnd
         && !p.file.path.startsWith("Daily/")
         && !p.file.path.startsWith("Templates/")
         && !p.file.path.startsWith("Weekly/")
@@ -141,7 +141,7 @@ else {
   if (notes.length > 0) {
     dv.list(notes.map(p => `[[${p.file.path}|${p.file.name}]] — _${p.file.folder}_`));
   } else {
-    dv.paragraph("*No project or reference notes were edited last week.*");
+    dv.paragraph("*No project or reference notes were edited last or this week.*");
   }
 }
 ```
