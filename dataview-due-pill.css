@@ -1,11 +1,11 @@
 /* Style due date inline fields as pills */
+/* DISABLED — kept for reference, will be restyled later. */
 
-/* Hide the "due" key text */
+/*
 span.dataview.inline-field-key[data-dv-key="due"] {
     display: none !important;
 }
 
-/* Style the due value as a pill - matching tag styling */
 span.dataview.inline-field-key[data-dv-key="due"] + span.dataview.inline-field-value {
     background-color: rgba(0, 0, 0, 0.06) !important;
     color: var(--text-normal) !important;
@@ -15,7 +15,7 @@ span.dataview.inline-field-key[data-dv-key="due"] + span.dataview.inline-field-v
     font-weight: var(--tag-weight) !important;
 }
 
-/* Add icon before the date */
 span.dataview.inline-field-key[data-dv-key="due"] + span.dataview.inline-field-value::before {
     content: "▪ " !important;
 }
+*/

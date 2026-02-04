@@ -1,0 +1,14 @@
+/* Fix heading collapse chevron vertical alignment */
+/* Obsidian core bug: chevron is vertically offset from header text */
+
+/* Live Preview / Source Mode (CodeMirror) */
+.cm-gutterElement .cm-fold-indicator .collapse-indicator {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+/* Reading Mode */
+.heading-collapse-indicator {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}

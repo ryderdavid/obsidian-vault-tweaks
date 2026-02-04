@@ -1,0 +1,90 @@
+/*
+ * Completed & cancelled task text styling
+ *
+ * Replaces default strikethrough on [x] completed and [-] cancelled
+ * tasks with a softer fade + italic treatment.  Desaturates all child
+ * elements (links, tags, etc.) to match.
+ */
+
+/* ── Base text: fade + italic, no strikethrough ───────────────── */
+
+body:not(.tasks)
+  .markdown-preview-view
+  ul
+  li[data-task='x'].task-list-item.is-checked,
+body:not(.tasks)
+  .markdown-preview-view
+  ul
+  li[data-task='X'].task-list-item.is-checked,
+body:not(.tasks)
+  .markdown-preview-view
+  ul
+  li[data-task='-'].task-list-item.is-checked,
+body:not(.tasks)
+  .markdown-source-view.mod-cm6
+  .HyperMD-task-line[data-task]:is([data-task='x']),
+body:not(.tasks)
+  .markdown-source-view.mod-cm6
+  .HyperMD-task-line[data-task]:is([data-task='X']),
+body:not(.tasks)
+  .markdown-source-view.mod-cm6
+  .HyperMD-task-line[data-task]:is([data-task='-']),
+body:not(.tasks) li[data-task='x'].task-list-item.is-checked,
+body:not(.tasks) li[data-task='X'].task-list-item.is-checked,
+body:not(.tasks) li[data-task='-'].task-list-item.is-checked {
+  text-decoration: none;
+  color: var(--text-faint) !important;
+  font-style: italic;
+}
+
+/* ── Desaturate all colored children on completed/cancelled lines ─ */
+
+/* Reading View: links, tags, everything */
+body:not(.tasks) li[data-task='x'].task-list-item.is-checked a,
+body:not(.tasks) li[data-task='x'].task-list-item.is-checked .tag,
+body:not(.tasks) li[data-task='x'].task-list-item.is-checked .internal-link,
+body:not(.tasks) li[data-task='X'].task-list-item.is-checked a,
+body:not(.tasks) li[data-task='X'].task-list-item.is-checked .tag,
+body:not(.tasks) li[data-task='X'].task-list-item.is-checked .internal-link,
+body:not(.tasks) li[data-task='-'].task-list-item.is-checked a,
+body:not(.tasks) li[data-task='-'].task-list-item.is-checked .tag,
+body:not(.tasks) li[data-task='-'].task-list-item.is-checked .internal-link,
+
+/* Live Preview: raw CM tokens (cursor on line) */
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .cm-link,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .cm-hmd-internal-link,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .cm-hmd-internal-link a,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .cm-link-alias,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .cm-link-alias a,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .cm-url,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .cm-link,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .cm-hmd-internal-link,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .cm-hmd-internal-link a,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .cm-link-alias,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .cm-link-alias a,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .cm-url,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .cm-link,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .cm-hmd-internal-link,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .cm-hmd-internal-link a,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .cm-link-alias,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .cm-link-alias a,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .cm-url,
+
+/* Live Preview: rendered widgets (cursor off line) */
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .internal-link,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .internal-link,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .internal-link,
+
+/* Live Preview: tags */
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .cm-hashtag,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] .cm-tag,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'] a.tag,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .cm-hashtag,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] .cm-tag,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] a.tag,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .cm-hashtag,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] .cm-tag,
+body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'] a.tag {
+  color: var(--text-faint) !important;
+  background-color: transparent !important;
+}
